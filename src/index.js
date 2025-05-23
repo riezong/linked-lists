@@ -1,25 +1,14 @@
 import "./styles.css";
+import { LinkedList } from "./linkedList.js";
+import { Node } from "./node.js";
 
-const LinkedList = function () {
-  // represent the full list
+const list = new LinkedList();
 
-  function append(value) {}
-  function prepend(value) {}
-  function size() {}
-  function head() {}
-  function at(index) {}
-  function pop() {}
-  function contains(value) {}
-  function find(value) {}
-  function toString() {}
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 
-  // Extra credit
-  function insertAt(value, index) {}
-  function removeAt(index) {}
-};
-
-const Node = function () {
-  // value and nextNode set to null by default
-  this.value = null;
-  this.nextNode = null;
-};
+console.log(list.toString());
