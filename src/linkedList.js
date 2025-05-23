@@ -8,8 +8,7 @@ export const LinkedList = function () {
     this.nextNode = null;
   };
 
-  this.head = new Node(null); // create head upon initialising factory
-  console.log(this.head);
+  this.head = null; // create head upon initialising factory
 
   function append(value) {
     // 1. create new Node
@@ -18,17 +17,23 @@ export const LinkedList = function () {
     // 2. if list is empty (head is null)
     //    new Node becomes head of list
     if (this.head.value == null) {
-      console.log("empty list");
+      // console.log("empty list");
       this.head = newNode;
-      console.log(this.head);
+      // console.log(this.head);
     } else {
       // 3. traverse to last Node
       //    while loop
       //    current pointer starting from this.head
-      console.log("not empty list");
-      console.log(this.head.nextNode);
-      this.head.nextNode = newNode;
-      console.log(this.head.nextNode);
+      let current = this.head;
+      while (current.nextNode != null) {
+        current = current.nextNode;
+        // console.log(current);
+      }
+      // console.log("not empty list");
+      // console.log(this.head.nextNode);
+      current.nextNode = newNode;
+      // console.log(this.head);
+      // console.log(current);
     }
   }
 
@@ -41,7 +46,9 @@ export const LinkedList = function () {
   function pop() {}
   function contains(value) {}
   function find(value) {}
-  function toString() {}
+  function toString() {
+    return this.head;
+  }
 
   // Extra credit
   // function insertAt(value, index) {}
