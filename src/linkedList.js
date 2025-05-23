@@ -1,9 +1,12 @@
+import { Node } from "./node.js";
+
 export const LinkedList = function () {
-  // represent the full list
-  const list = [];
+  const list = []; // represent the full list
 
   function append(value) {
-    list.push(value);
+    const newNode = new Node(value); // add a new Node
+    list.push(newNode);
+    console.log(newNode);
   }
   function prepend(value) {}
   function size() {}
@@ -13,12 +16,16 @@ export const LinkedList = function () {
   function contains(value) {}
   function find(value) {}
   function toString() {
-    return list.map((x) => `( ${x} )`).join(" -> ");
+    const stringList = [];
+    list.forEach((item) => {
+      stringList.push(item.value); // extract the value of each Node
+    });
+    return stringList.map((x) => `( ${x} )`).join(" -> "); // return string with formatting
   }
 
   // Extra credit
-  function insertAt(value, index) {}
-  function removeAt(index) {}
+  // function insertAt(value, index) {}
+  // function removeAt(index) {}
 
   return {
     list,

@@ -1,5 +1,5 @@
-export const Node = function () {
+export const Node = function (value = null) {
   // value and nextNode set to null by default
-  this.value = null;
+  this.value = value;
   this.nextNode = null;
 };
