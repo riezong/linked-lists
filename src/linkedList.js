@@ -20,19 +20,18 @@ export const LinkedList = function () {
     if (this.head.value == null) {
       console.log("empty list");
       this.head = newNode;
+      console.log(this.head);
     } else {
+      // 3. traverse to last Node
+      //    while loop
+      //    current pointer starting from this.head
       console.log("not empty list");
+      console.log(this.head.nextNode);
+      this.head.nextNode = newNode;
+      console.log(this.head.nextNode);
     }
-
-    // 3. traverse to last Node
-    //    while loop
-    //    current pointer starting from this.head
-
-    // else
-
-    console.log(newNode);
-    // Theoretically, when I add a new Node, I should loop through the existing list and link the nextNode?
   }
+
   function prepend(value) {}
   function size() {}
   function head(value) {
