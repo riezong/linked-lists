@@ -1,34 +1,54 @@
-import { Node } from "./node.js";
+// import { Node } from "./node.js";
 
 export const LinkedList = function () {
-  const list = []; // represent the full list
+  const Node = function (value = null) {
+    // inner factory...
+    // value and nextNode set to null by default
+    this.value = value;
+    this.nextNode = null;
+  };
+
+  this.head = new Node(null); // create head upon initialising factory
+  console.log(this.head);
 
   function append(value) {
+    // 1. create new Node
     const newNode = new Node(value); // add a new Node
-    list.push(newNode);
+
+    // 2. if list is empty (head is null)
+    //    new Node becomes head of list
+    if (this.head.value == null) {
+      console.log("empty list");
+      this.head = newNode;
+    } else {
+      console.log("not empty list");
+    }
+
+    // 3. traverse to last Node
+    //    while loop
+    //    current pointer starting from this.head
+
+    // else
+
     console.log(newNode);
+    // Theoretically, when I add a new Node, I should loop through the existing list and link the nextNode?
   }
   function prepend(value) {}
   function size() {}
-  function head() {}
+  function head(value) {
+    // returns the first node in the list
+  }
   function at(index) {}
   function pop() {}
   function contains(value) {}
   function find(value) {}
-  function toString() {
-    const stringList = [];
-    list.forEach((item) => {
-      stringList.push(item.value); // extract the value of each Node
-    });
-    return stringList.map((x) => `( ${x} )`).join(" -> "); // return string with formatting
-  }
+  function toString() {}
 
   // Extra credit
   // function insertAt(value, index) {}
   // function removeAt(index) {}
 
   return {
-    list,
     append,
     prepend,
     size,
