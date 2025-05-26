@@ -145,8 +145,23 @@ export const LinkedList = function () {
   }
 
   // Extra credit
-  // function insertAt(value, index) {}
-  // function removeAt(index) {}
+  function insertAt(value, index) {
+    // 1. create new Node
+    const newNode = new Node(value); // add a new Node
+
+    let prev = index - 1;
+    let next = at(index);
+    at(prev).nextNode = newNode;
+    newNode.nextNode = next;
+
+    return newNode;
+  }
+
+  function removeAt(index) {
+    let prev = index - 1;
+    let next = index + 1;
+    return (at(prev).nextNode = at(next));
+  }
 
   return {
     append,
@@ -159,5 +174,7 @@ export const LinkedList = function () {
     contains,
     find,
     toString,
+    insertAt,
+    removeAt,
   };
 };
