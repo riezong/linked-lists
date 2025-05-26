@@ -9,7 +9,6 @@ export const LinkedList = function () {
   };
 
   let firstNode = null; // create head upon initialising factory
-  console.log(typeof firstNode);
 
   function append(value) {
     // 1. create new Node
@@ -43,7 +42,6 @@ export const LinkedList = function () {
   }
 
   function size() {
-    console.log(typeof firstNode);
     if (firstNode === null) return 0;
 
     let counter = 1;
@@ -61,8 +59,47 @@ export const LinkedList = function () {
     // returns the first node in the list
     return firstNode;
   }
-  function at(index) {}
-  function pop() {}
+
+  function tail() {
+    // returns the last node in the list
+    let current = firstNode;
+    while (current.nextNode != null) {
+      current = current.nextNode;
+    }
+    let lastNode = current;
+    return lastNode;
+  }
+
+  function at(index) {
+    if (firstNode === null) return console.log("empty list");
+
+    // traverse list
+    let current = firstNode;
+    for (let i = 0; i < index; i++) {
+      current = current.nextNode;
+    }
+
+    if (current === null) return "list isn't long enough";
+
+    return current;
+  }
+
+  function pop() {
+    // 1. get the second last Node
+    let size = this.size();
+    console.log(size);
+    let target = size - 2;
+    console.log(target);
+    // console.log(this.at(target));
+
+    // 2. change that Node.nextNode to null
+    this.at(target).nextNode = null;
+    // console.log(this.at(target));
+
+    // 3. return new last Node
+    return this.tail();
+  }
+
   function contains(value) {}
   function find(value) {}
   function toString() {
@@ -90,6 +127,7 @@ export const LinkedList = function () {
     prepend,
     size,
     head,
+    tail,
     at,
     pop,
     contains,
