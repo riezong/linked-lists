@@ -17,9 +17,7 @@ export const LinkedList = function () {
     // 2. if list is empty (head is null)
     //    new Node becomes head of list
     if (this.head.value == null) {
-      // console.log("empty list");
       this.head = newNode;
-      // console.log(this.head);
     } else {
       // 3. traverse to last Node
       //    while loop
@@ -27,19 +25,14 @@ export const LinkedList = function () {
       let current = this.head;
       while (current.nextNode != null) {
         current = current.nextNode;
-        // console.log(current);
       }
-      // console.log("not empty list");
-      // console.log(this.head.nextNode);
       current.nextNode = newNode;
-      // console.log(this.head);
-      // console.log(current);
     }
   }
 
   function prepend(value) {}
   function size() {}
-  function head(value) {
+  function head() {
     // returns the first node in the list
   }
   function at(index) {}
@@ -47,7 +40,16 @@ export const LinkedList = function () {
   function contains(value) {}
   function find(value) {}
   function toString() {
-    return this.head;
+    const listString = [];
+    let current = this.head;
+    listString.push(current.value); // add first value to array
+    while (current.nextNode != null) {
+      listString.push(current.nextNode.value);
+      current = current.nextNode;
+    }
+    listString.push(current.nextNode); // add last value (null) to array
+    return listString.map((x) => `( ${x} )`).join(" -> ");
+    // return this.head;
   }
 
   // Extra credit
