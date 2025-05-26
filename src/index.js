@@ -25,3 +25,7 @@ console.log(list.size());
 console.log(list.at(7));
 
 console.log(list.pop());
+
+console.log(list.contains("cat"));
+console.log(list.find("cat"));
+console.log(list.at(2));

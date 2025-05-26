@@ -87,9 +87,9 @@ export const LinkedList = function () {
   function pop() {
     // 1. get the second last Node
     let size = this.size();
-    console.log(size);
+    // console.log(size);
     let target = size - 2;
-    console.log(target);
+    // console.log(target);
     // console.log(this.at(target));
 
     // 2. change that Node.nextNode to null
@@ -100,8 +100,34 @@ export const LinkedList = function () {
     return this.tail();
   }
 
-  function contains(value) {}
-  function find(value) {}
+  function contains(value) {
+    // returns true if the passed in value is in the list and otherwise returns false.
+
+    // traverse list
+    let current = firstNode;
+    while (current.nextNode != null) {
+      console.log(current.value);
+      if (current.value == value) return true;
+      current = current.nextNode;
+    }
+
+    return false;
+  }
+
+  function find(value) {
+    let counter = 0;
+    // traverse list
+    let current = firstNode;
+    while (current.nextNode != null) {
+      counter += 1;
+      console.log(current.value);
+      if (current.value == value) return counter - 1;
+      current = current.nextNode;
+    }
+
+    return console.log("doesn't exist in list");
+  }
+
   function toString() {
     const listString = [];
     let current = firstNode;
